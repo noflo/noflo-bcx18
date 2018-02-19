@@ -1,0 +1,25 @@
+
+
+url(BuildThingServerUrl) -> URL connect(websocket/Connect)
+connect CONNECTION -> CONNECTION send(websocket/SendMessage)
+'START-SEND-EVENTS' -> STRING send
+
+connect CONNECTION -> CONNECTION message(websocket/ListenMessages) STRING -> parse(ReceiveThingMessage) 
+parse -> log(core/Output)
+
+# debugging
+url -> log(core/Output)
+connect CONNECTION -> log
+message STRING -> log
+
+errors(core/Output)
+url ERROR -> errors
+connect ERROR -> errors
+#send ERROR -> errors
+#message ERROR -> errors
+parse ERROR -> errors
+
+'db7f4e0cca344d32be72914311f1055f' -> TOKEN url 
+'87BF11FF7172AF7C6A086B5' -> TENANT url
+'bcx18' -> USERNAME url
+'bcx18!Open2' -> PASSWORD url
