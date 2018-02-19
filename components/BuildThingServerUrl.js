@@ -3,11 +3,11 @@ const noflo = require('noflo');
 
 function apiUrl(tenant, username, password, token, base) {
     if (typeof base === 'undefined') {
-        //base = 'things.apps.bosch-iot-cloud.com';
-        base = 'localhost:8080';
+        base = 'things.apps.bosch-iot-cloud.com';
+        //base = 'localhost:8080';
     }
 
-    const url = 'ws://' + tenant +
+    const url = 'wss://' + tenant +
         '%5c' + username + ':' + password +
         '@' + base + '/ws/1?x-cr-api-token=' + token;
     return url;
