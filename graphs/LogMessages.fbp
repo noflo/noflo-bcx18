@@ -4,7 +4,7 @@ url(BuildThingServerUrl) -> URL connect(websocket/Connect)
 connect CONNECTION -> CONNECTION send(websocket/SendMessage)
 'START-SEND-EVENTS' -> STRING send
 
-connect CONNECTION -> CONNECTION message(websocket/ListenMessages) STRING -> parse(ReceiveThingMessage) 
+connect CONNECTION -> CONNECTION message(websocket/ListenMessages) STRING -> data parse(ReceiveThingMessage) 
 parse -> log(core/Output)
 
 # debugging
@@ -15,8 +15,6 @@ message STRING -> log
 errors(core/Output)
 url ERROR -> errors
 connect ERROR -> errors
-#send ERROR -> errors
-#message ERROR -> errors
 parse ERROR -> errors
 
 'db7f4e0cca344d32be72914311f1055f' -> TOKEN url 
