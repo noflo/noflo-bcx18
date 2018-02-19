@@ -2,8 +2,6 @@
 const noflo = require('noflo');
 
 function onMessage(data) {
-    console.log('on message');
-
     if (data == 'START-SEND-EVENTS:ACK') {
         console.log("[WS] Acknowledged");
     } else {
@@ -26,11 +24,5 @@ function onMessage(data) {
 }
 
 exports.getComponent = () => {
-  console.log('getcomp');
-  try {
-    const c = noflo.asComponent(onMessage, { description: 'Return payload of Websocket message', icon: 'file' });
-    return c;
-  } catch (e) {
-    console.log('e', e);
-  }
+    return noflo.asComponent(onMessage, { description: 'Return payload of Websocket message', icon: 'file' });
 };

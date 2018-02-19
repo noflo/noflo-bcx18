@@ -3,14 +3,10 @@
 url(BuildThingServerUrl) -> URL connect(websocket/Connect)
 connect CONNECTION -> CONNECTION send(websocket/SendMessage)
 'START-SEND-EVENTS' -> STRING send
+connect CONNECTION -> CONNECTION message(websocket/ListenMessages) STRING -> data parse(ReceiveThingMessage)
 
-connect CONNECTION -> CONNECTION message(websocket/ListenMessages) STRING -> data parse(ReceiveThingMessage) 
+# log to output
 parse -> log(core/Output)
-
-# debugging
-url -> log(core/Output)
-connect CONNECTION -> log
-message STRING -> log
 
 errors(core/Output)
 url ERROR -> errors
