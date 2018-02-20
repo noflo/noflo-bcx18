@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "dev": "noflo-nodejs --uuid b1e10adb-9635-4e33-90d8-7a9fd7474ada --register false --secret bcx18",
     "pretest": "eslint components/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
