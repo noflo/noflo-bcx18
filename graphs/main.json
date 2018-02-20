@@ -1,0 +1,92 @@
+{
+    "caseSensitive": false,
+    "properties": {
+        "name": "main",
+        "description": "",
+        "icon": "angellist",
+        "environment": {
+            "type": "noflo-nodejs"
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "bcx18/Subscribe_btyfb": {
+            "component": "bcx18/Subscribe",
+            "metadata": {
+                "label": "Subscribe",
+                "x": 432,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Output_u64ca": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "Output",
+                "x": 540,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "bcx18/Subscribe_btyfb",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Output_u64ca",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 4
+            }
+        },
+        {
+            "src": {
+                "process": "bcx18/Subscribe_btyfb",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_u64ca",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "data": "db7f4e0cca344d32be72914311f1055f",
+            "tgt": {
+                "process": "bcx18/Subscribe_btyfb",
+                "port": "token"
+            }
+        },
+        {
+            "data": "87BF11FF7172AF7C6A086B5",
+            "tgt": {
+                "process": "bcx18/Subscribe_btyfb",
+                "port": "tenant"
+            }
+        },
+        {
+            "data": "bcx18",
+            "tgt": {
+                "process": "bcx18/Subscribe_btyfb",
+                "port": "username"
+            }
+        },
+        {
+            "data": "bcx18!Open2",
+            "tgt": {
+                "process": "bcx18/Subscribe_btyfb",
+                "port": "password"
+            }
+        }
+    ]
+}
